@@ -27,7 +27,7 @@ class AddColumnsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('nin');
-            $table->dropColumn('api_token', 60);
+            $table->dropColumn('api_token');
         });
     }
 }

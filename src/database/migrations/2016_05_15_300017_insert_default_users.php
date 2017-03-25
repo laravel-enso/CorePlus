@@ -3,6 +3,7 @@
 use App\Owner;
 use App\User;
 use Illuminate\Database\Migrations\Migration;
+use LaravelEnso\Core\App\Models\Role;
 
 class InsertDefaultUsers extends Migration
 {
@@ -14,8 +15,8 @@ class InsertDefaultUsers extends Migration
     public function up()
     {
         \DB::transaction(function () {
-            $owner = Owner::whereName('Admin');
-            $role = Role::whereName('admin');
+            $owner = Owner::whereName('Admin')->first();
+            $role = Role::whereName('admin')->first();
             $defaults = ['owner_id' => $owner->id, 'role_id' => $role->id, 'nin' => null, 'is_active' => 1];
 
             $users = [

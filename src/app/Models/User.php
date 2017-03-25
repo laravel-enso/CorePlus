@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Core\App\Models;
+namespace LaravelEnso\CorePlus\App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
