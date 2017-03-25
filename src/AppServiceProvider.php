@@ -2,6 +2,7 @@
 
 namespace LaravelEnso\CorePlus;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,40 +14,39 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishesAll();
+        $this->publishesResources();
+        $this->publishesClasses();
         $this->loadDependencies();
     }
 
-    private function publishesAll()
+    private function publishesResources()
     {
         $this->publishes([
             __DIR__.'/database/migrations' => database_path('migrations'),
-        ], 'core-migrations');
+        ], 'coreplus-migrations');
 
         $this->publishes([
             __DIR__.'/resources/views/pages' => resource_path('views/vendor/laravel-enso/core/pages'),
-        ], 'core-views');
-
-        $this->publishesClasses();
+        ], 'coreplus-views');
     }
 
     private function publishesClasses()
     {
         $this->publishes([
             __DIR__.'/resources/Classes/DataTable' => app_path('DataTable'),
-        ], 'core-classes');
+        ], 'coreplus-classes');
 
         $this->publishes([
             __DIR__.'/resources/Classes/Controllers' => app_path('Http/Controllers'),
-        ], 'core-controllers');
+        ], 'coreplus-controllers');
 
         $this->publishes([
             __DIR__.'/resources/Classes/Requests' => app_path('Http/Requests'),
-        ], 'core-requests');
+        ], 'coreplus-requests');
 
         $this->publishes([
             __DIR__.'/resources/Classes/Models' => app_path(),
-        ], 'core-models');
+        ], 'coreplus-models');
     }
 
     private function loadDependencies()
@@ -63,5 +63,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register('LaravelEnso\CnpValidator\CnpValidatorServiceProvider');
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Date', 'Jenssegers\Date\Date');
     }
 }
