@@ -8,8 +8,8 @@ use App\Http\Requests\ValidateOwnerRequest;
 use App\Owner;
 use App\User;
 use LaravelEnso\Core\App\Enums\IsActiveEnum;
-use LaravelEnso\CorePlus\App\Enums\IsIndividualEnum;
 use LaravelEnso\Core\App\Models\Role;
+use LaravelEnso\CorePlus\App\Enums\IsIndividualEnum;
 use LaravelEnso\DataTable\App\Traits\DataTable;
 use LaravelEnso\Select\App\Traits\SelectListBuilderTrait;
 

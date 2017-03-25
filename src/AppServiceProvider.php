@@ -3,11 +3,6 @@
 namespace LaravelEnso\Core;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnso\Core\App\Http\Middleware\Impersonate;
-use LaravelEnso\Core\App\Http\Middleware\VerifyActiveState;
-use LaravelEnso\Core\App\Http\Middleware\VerifyRouteAccess;
-use LaravelEnso\Core\App\Http\ViewComposers\BreadcrumbsComposer;
-use LaravelEnso\Core\App\Http\ViewComposers\MainComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
