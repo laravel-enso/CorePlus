@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\Core;
+namespace LaravelEnso\CorePlus;
 
 use Illuminate\Support\ServiceProvider;
 
