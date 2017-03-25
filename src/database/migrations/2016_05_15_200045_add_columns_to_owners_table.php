@@ -36,18 +36,18 @@ class AddColumnsToOwnersTable extends Migration
     public function down()
     {
         Schema::table('owners', function (Blueprint $table) {
-            $table->dropColumns('fiscal_code');
-            $table->dropColumns('reg_com_nr');
-            $table->dropColumns('city');
-            $table->dropColumns('county');
-            $table->dropColumns('address');
-            $table->dropColumns('postal_code');
-            $table->dropColumns('bank');
-            $table->dropColumns('bank_account');
-            $table->dropColumns('contact');
-            $table->dropColumns('phone');
-            $table->dropColumns('email');
-            $table->dropColumns('is_individual');
+            $table->dropColumn('fiscal_code');
+            $table->dropColumn('reg_com_nr');
+            $table->dropColumn('city');
+            $table->dropColumn('county');
+            $table->dropColumn('address');
+            $table->dropColumn('postal_code');
+            $table->dropColumn('bank');
+            $table->dropColumn('bank_account');
+            $table->dropColumn('contact');
+            $table->dropColumn('phone');
+            $table->dropColumn('email');
+            $table->dropColumn('is_individual');
         });
     }
 }
