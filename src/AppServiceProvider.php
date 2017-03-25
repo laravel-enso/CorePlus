@@ -62,6 +62,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register('LaravelEnso\CnpValidator\CnpValidatorServiceProvider');
     }
 }
