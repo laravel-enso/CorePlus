@@ -13,18 +13,18 @@ class AddColumnsToOwnersTable extends Migration
     public function up()
     {
         Schema::table('owners', function (Blueprint $table) {
-            $table->string('fiscal_code')->unique('fiscal_code')->nullable();
-            $table->string('reg_com_nr')->nullable();
-            $table->string('city')->nullable();
-            $table->string('county')->nullable();
-            $table->string('address')->nullable();
-            $table->string('postal_code')->nullable();
-            $table->string('bank')->nullable();
-            $table->string('bank_account')->nullable();
-            $table->string('contact')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->boolean('is_individual')->default(false);
+            $table->string('fiscal_code')->unique('fiscal_code')->nullable()->after('name');
+            $table->string('reg_com_nr')->nullable()->after('fiscal_code');
+            $table->string('city')->nullable()->after('reg_com_nr');
+            $table->string('county')->nullable()->after('city');
+            $table->string('address')->nullable()->after('county');
+            $table->string('postal_code')->nullable()->after('address');
+            $table->string('bank')->nullable()->after('postal_code');
+            $table->string('bank_account')->nullable()->after('bank');
+            $table->string('contact')->nullable()->after('bank_account');
+            $table->string('phone')->nullable()->after('contact');
+            $table->string('email')->nullable()->after('phone');
+            $table->boolean('is_individual')->default(false)->after('email');
         });
     }
 
