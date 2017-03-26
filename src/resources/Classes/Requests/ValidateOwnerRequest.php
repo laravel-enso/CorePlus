@@ -27,16 +27,18 @@ class ValidateOwnerRequest extends FormRequest
         $name = 'required|max:50|unique:owners,name';
         $fiscalCode = 'required|unique:owners,fiscal_code';
         $regComNr = 'unique:owners,reg_com_nr';
+        $email = ['max:100', 'regex:^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$^', 'unique:owners,email'];
 
         if ($this->_method == 'PATCH') {
             $name .= ','.$owner->id.',id';
             $fiscalCode .= ','.$owner->id.',id';
             $regComNr .= ','.$owner->id.',id';
+            $email .= ','.$owner->id.',id';
         }
 
         return [
             'name'          => $name,
-            'email'         => ['max:100', 'regex:^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$^', 'unique:owners,email,'.$owner->id.',id'],
+            'email'         => $email,
             'phone'         => ['max:20', 'regex:^[0-9+\(\)#\.\s\/ext-]+$^'],
             'fiscal_code'   => $fiscalCode,
             'reg_com_nr'    => $regComNr,
