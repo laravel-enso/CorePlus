@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
 
     private $providers = [
         'Jenssegers\Date\DateServiceProvider',
-        'LaravelEnso\CnpValidator\CnpValidatorServiceProvide',
+        'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
         'LaravelEnso\CommentsManager\CommentsManagerServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
     ];
@@ -36,6 +36,10 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/views/pages' => resource_path('views/vendor/laravel-enso/core/pages'),
         ], 'coreplus-views');
+
+        $this->publishes([
+            __DIR__.'/resources/assets/main-js' => resource_path('assets/js'),
+        ], 'coreplus-main-js');
     }
 
     private function publishesClasses()
