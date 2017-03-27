@@ -2,7 +2,7 @@
 
 namespace App;
 
-use LaravelEnso\CorePlus\App\Models\User as Users;
+use LaravelEnso\CorePlus\app\Models\User as Users;
 
 class User extends Users
 {

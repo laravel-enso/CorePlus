@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\CorePlus\App\Enums;
+namespace LaravelEnso\CorePlus\app\Enums;
 
 use LaravelEnso\Helpers\Classes\AbstractEnum;
 

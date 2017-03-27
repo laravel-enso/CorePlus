@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelEnso\CorePlus\App\Models;
+namespace LaravelEnso\CorePlus\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,22 +12,22 @@ class Owner extends Model
 
     public function comments()
     {
-        return $this->morphMany('LaravelEnso\CommentsManager\App\Models\Comment', 'commentable');
+        return $this->morphMany('LaravelEnso\CommentsManager\app\Models\Comment', 'commentable');
     }
 
     public function documents()
     {
-        return $this->morphMany('LaravelEnso\DocumentsManager\App\Models\Document', 'documentable');
+        return $this->morphMany('LaravelEnso\DocumentsManager\app\Models\Document', 'documentable');
     }
 
     public function users()
     {
-        return $this->hasMany('LaravelEnso\Core\App\Models\User');
+        return $this->hasMany('LaravelEnso\Core\app\Models\User');
     }
 
     public function roles()
     {
-        return $this->belongsToMany('LaravelEnso\Core\App\Models\Role');
+        return $this->belongsToMany('LaravelEnso\Core\app\Models\Role');
     }
 
     public function getRolesListAttribute()

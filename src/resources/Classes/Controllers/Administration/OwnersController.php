@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidateOwnerRequest;
 use App\Owner;
 use App\User;
-use LaravelEnso\Core\App\Enums\IsActiveEnum;
-use LaravelEnso\Core\App\Models\Role;
-use LaravelEnso\CorePlus\App\Enums\IsIndividualEnum;
-use LaravelEnso\DataTable\App\Traits\DataTable;
-use LaravelEnso\Select\App\Traits\SelectListBuilderTrait;
+use LaravelEnso\Core\app\Enums\IsActiveEnum;
+use LaravelEnso\Core\app\Models\Role;
+use LaravelEnso\CorePlus\app\Enums\IsIndividualEnum;
+use LaravelEnso\DataTable\app\Traits\DataTable;
+use LaravelEnso\Select\app\Traits\SelectListBuilderTrait;
 
 class OwnersController extends Controller
 {

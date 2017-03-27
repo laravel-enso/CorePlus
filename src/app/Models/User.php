@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelEnso\CorePlus\App\Models;
+namespace LaravelEnso\CorePlus\app\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use LaravelEnso\CnpValidator\Validations;
-use LaravelEnso\Core\App\Enums\IsActiveEnum;
-use LaravelEnso\Core\App\Http\Controllers\Core\PreferencesController;
-use LaravelEnso\Core\App\Notifications\ResetPasswordNotification;
+use LaravelEnso\Core\app\Enums\IsActiveEnum;
+use LaravelEnso\Core\app\Http\Controllers\Core\PreferencesController;
+use LaravelEnso\Core\app\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -25,37 +25,37 @@ class User extends Authenticatable
 
     public function owner()
     {
-        return $this->belongsTo('LaravelEnso\Core\App\Models\Owner');
+        return $this->belongsTo('LaravelEnso\Core\app\Models\Owner');
     }
 
     public function avatar()
     {
-        return $this->hasOne('LaravelEnso\Core\App\Models\Avatar');
+        return $this->hasOne('LaravelEnso\Core\app\Models\Avatar');
     }
 
     public function role()
     {
-        return $this->belongsTo('LaravelEnso\Core\App\Models\Role');
+        return $this->belongsTo('LaravelEnso\Core\app\Models\Role');
     }
 
     public function logins()
     {
-        return $this->hasMany('LaravelEnso\Core\App\Models\Login');
+        return $this->hasMany('LaravelEnso\Core\app\Models\Login');
     }
 
     public function preferences()
     {
-        return $this->hasMany('LaravelEnso\Core\App\Models\Preference');
+        return $this->hasMany('LaravelEnso\Core\app\Models\Preference');
     }
 
     public function comments()
     {
-        return $this->hasMany('LaravelEnso\CommentsManager\App\Models\Comment');
+        return $this->hasMany('LaravelEnso\CommentsManager\app\Models\Comment');
     }
 
     public function comments_tags()
     {
-        return $this->belongsToMany('LaravelEnso\CommentsManager\App\Models\Comment');
+        return $this->belongsToMany('LaravelEnso\CommentsManager\app\Models\Comment');
     }
 
     public function getAvatarLinkAttribute()
@@ -80,7 +80,7 @@ class User extends Authenticatable
 
     public function action_histories()
     {
-        return $this->hasMany('LaravelEnso\ActionLogger\App\Models\ActionHistory');
+        return $this->hasMany('LaravelEnso\ActionLogger\app\Models\ActionHistory');
     }
 
     public function isAdmin()
