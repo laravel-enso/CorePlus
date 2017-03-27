@@ -12,6 +12,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    private $providers = [
+        Jenssegers\Date\DateServiceProvider::class,
+        LaravelEnso\CnpValidator\CnpValidatorServiceProvide::class,
+        LaravelEnso\CommentsManager\CommentsManagerServiceProvider::class,
+        LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider::class,
+    ];
+
     public function boot()
     {
         $this->publishesResources();
@@ -62,7 +70,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register('LaravelEnso\CnpValidator\CnpValidatorServiceProvider');
+        foreach ($this->providers as $provider) {
+            $this->app->register($provider);
+        }
 
         $loader = AliasLoader::getInstance();
         $loader->alias('Date', 'Jenssegers\Date\Date');

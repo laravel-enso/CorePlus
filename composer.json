@@ -14,6 +14,8 @@
         "laravel/framework": "5.4.*",
         "laravel-enso/core": "^1.0.0",
         "laravel-enso/cnpvalidator": "^1.0.0",
+        "laravel-enso/commentsmanager": "^1.0.0",
+        "laravel-enso/documentsmanager": "^1.0.0",
         "jenssegers/date": "^3.2"
     },
     "autoload": {

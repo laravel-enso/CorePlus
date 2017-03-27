@@ -10,16 +10,6 @@ class Owner extends Model
         'name', 'fiscal_code', 'reg_com_nr', 'city', 'county', 'bank', 'bank_account', 'postal_code', 'contact', 'phone', 'email', 'address', 'is_individual', 'is_active',
     ];
 
-    public function comments()
-    {
-        return $this->morphMany('LaravelEnso\CommentsManager\app\Models\Comment', 'commentable');
-    }
-
-    public function documents()
-    {
-        return $this->morphMany('LaravelEnso\DocumentsManager\app\Models\Document', 'documentable');
-    }
-
     public function users()
     {
         return $this->hasMany('LaravelEnso\Core\app\Models\User');

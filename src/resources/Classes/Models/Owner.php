@@ -14,4 +14,14 @@ class Owner extends Owners
     {
         return $this->hasMany('App\User');
     }
+
+    public function comments()
+    {
+        return $this->morphMany('LaravelEnso\CommentsManager\app\Models\Comment', 'commentable');
+    }
+
+    public function documents()
+    {
+        return $this->morphMany('LaravelEnso\DocumentsManager\app\Models\Document', 'documentable');
+    }
 }
