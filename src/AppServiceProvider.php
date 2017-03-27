@@ -14,10 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
 
     private $providers = [
-        Jenssegers\Date\DateServiceProvider::class,
-        LaravelEnso\CnpValidator\CnpValidatorServiceProvide::class,
-        LaravelEnso\CommentsManager\CommentsManagerServiceProvider::class,
-        LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider::class,
+        'Jenssegers\Date\DateServiceProvider',
+        'LaravelEnso\CnpValidator\CnpValidatorServiceProvide',
+        'LaravelEnso\CommentsManager\CommentsManagerServiceProvider',
+        'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
     ];
 
     public function boot()
