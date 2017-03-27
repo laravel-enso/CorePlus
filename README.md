@@ -8,7 +8,7 @@
 
 1. run `composer require laravel-enso/coreplus`
 
-2. add `LaravelEnso\CorePlus\AppServiceProvider` to config/app.php
+2. add `LaravelEnso\CorePlus\CorePlusServiceProvider` to config/app.php
 
 3. run `php artisan vendor:publish --force`
 
