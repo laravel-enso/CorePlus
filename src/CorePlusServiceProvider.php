@@ -5,14 +5,13 @@ namespace LaravelEnso\CorePlus;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class CorePlusServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      *
      * @return void
      */
-
     private $providers = [
         'Jenssegers\Date\DateServiceProvider',
         'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
