@@ -11,8 +11,13 @@ class User extends Users
     ];
 
     protected $hidden = [
-        'password', 'remember_token', 'api_token',
+        'password', 'remember_token'
     ];
 
     protected $appends = ['avatar_link', 'full_name'];
+
+    public function owner()
+    {
+        return $this->belongsTo('App\Owner');
+    }
 }
