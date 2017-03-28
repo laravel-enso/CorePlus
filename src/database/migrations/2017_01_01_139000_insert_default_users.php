@@ -46,8 +46,7 @@ class InsertDefaultUsers extends Migration
     public function down()
     {
         $users = User::all();
-        $users->each(function($user) {
-
+        $users->each(function ($user) {
             $user->action_histories->each->delete();
             $user->logins->each->delete();
             $user->delete();
