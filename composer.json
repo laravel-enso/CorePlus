@@ -16,11 +16,21 @@
         "laravel-enso/cnpvalidator": "^1.0.0",
         "laravel-enso/commentsmanager": "^1.0.0",
         "laravel-enso/documentsmanager": "^1.0.0",
-        "jenssegers/date": "^3.2"
+        "jenssegers/date": "^3.2",
+        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-ide-helper": "^2.3"
     },
     "autoload": {
         "psr-4": {
             "LaravelEnso\\CorePlus\\": "src/"
         }
+    },
+    "scripts":{
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
+            "php artisan optimize"
+        ]
     }
 }
