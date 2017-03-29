@@ -31,41 +31,41 @@ class CorePlusServiceProvider extends ServiceProvider
     private function publishesResources()
     {
         $this->publishes([
-            __DIR__ . '/database/migrations' => database_path('migrations'),
+            __DIR__.'/database/migrations' => database_path('migrations'),
         ], 'coreplus-migrations');
 
         $this->publishes([
-            __DIR__ . '/resources/views/pages' => resource_path('views/vendor/laravel-enso/core/pages'),
+            __DIR__.'/resources/views/pages' => resource_path('views/vendor/laravel-enso/core/pages'),
         ], 'coreplus-views');
 
         $this->publishes([
-            __DIR__ . '/resources/assets/main-js' => resource_path('assets/js'),
+            __DIR__.'/resources/assets/main-js' => resource_path('assets/js'),
         ], 'coreplus-main-js');
     }
 
     private function publishesClasses()
     {
         $this->publishes([
-            __DIR__ . '/resources/Classes/DataTable' => app_path('DataTable'),
+            __DIR__.'/resources/Classes/DataTable' => app_path('DataTable'),
         ], 'coreplus-classes');
 
         $this->publishes([
-            __DIR__ . '/resources/Classes/Controllers' => app_path('Http/Controllers'),
+            __DIR__.'/resources/Classes/Controllers' => app_path('Http/Controllers'),
         ], 'coreplus-controllers');
 
         $this->publishes([
-            __DIR__ . '/resources/Classes/Requests' => app_path('Http/Requests'),
+            __DIR__.'/resources/Classes/Requests' => app_path('Http/Requests'),
         ], 'coreplus-requests');
 
         $this->publishes([
-            __DIR__ . '/resources/Classes/Models' => app_path(),
+            __DIR__.'/resources/Classes/Models' => app_path(),
         ], 'coreplus-models');
     }
 
     private function loadDependencies()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'laravel-enso/core');
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-enso/core');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
     /**
