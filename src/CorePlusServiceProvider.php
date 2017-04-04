@@ -13,6 +13,7 @@ class CorePlusServiceProvider extends ServiceProvider
      * @return void
      */
     private $providers = [
+        'LaravelEnso\Core\CoreServiceProvider',
         'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
         'LaravelEnso\CommentsManager\CommentsManagerServiceProvider',
