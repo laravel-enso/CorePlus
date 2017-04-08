@@ -6,7 +6,6 @@ use App\DataTable\OwnersTableStructure;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ValidateOwnerRequest;
 use App\Owner;
-use App\User;
 use LaravelEnso\Core\app\Enums\IsActiveEnum;
 use LaravelEnso\Core\app\Models\Role;
 use LaravelEnso\CorePlus\app\Enums\IsIndividualEnum;
