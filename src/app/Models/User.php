@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->hasMany('LaravelEnso\CommentsManager\app\Models\Comment');
     }
 
-    public function comments_tags()
+    public function comment_tags()
     {
         return $this->belongsToMany('LaravelEnso\CommentsManager\app\Models\Comment');
     }
