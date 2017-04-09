@@ -14,7 +14,7 @@ class AddColumnsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('nin')->nullable();
-            $table->string('api_token', 60)->nullable();
+            $table->string('slack')->nullable();
         });
     }
 
@@ -26,8 +26,8 @@ class AddColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('nin')->after('phone');
-            $table->dropColumn('api_token')->after('nin');
+            $table->dropColumn('nin');
+            $table->dropColumn('slack');
         });
     }
 }

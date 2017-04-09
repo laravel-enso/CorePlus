@@ -18,7 +18,7 @@ class User extends Authenticatable
     ];
 
     protected $hidden = [
-        'password', 'remember_token', 'api_token',
+        'password', 'remember_token',
     ];
 
     protected $appends = ['avatar_link', 'full_name'];
@@ -154,5 +154,10 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($this, $token));
+    }
+
+    public function routeNotificationForSlack()
+    {
+        return $this->slack;
     }
 }
