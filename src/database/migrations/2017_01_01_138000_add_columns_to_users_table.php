@@ -13,8 +13,8 @@ class AddColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('nin')->nullable();
-            $table->string('slack')->nullable();
+            $table->string('nin')->after('phone')->nullable();
+            $table->string('slack')->after('phone')->nullable();
         });
     }
 
