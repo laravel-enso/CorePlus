@@ -4,7 +4,7 @@ namespace LaravelEnso\CorePlus\app\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use LaravelEnso\CnpValidator\Validations;
+use LaravelEnso\CnpValidator\app\Classes\CnpValidator;
 use LaravelEnso\Core\app\Enums\IsActiveEnum;
 use LaravelEnso\Core\app\Http\Controllers\Core\PreferencesController;
 use LaravelEnso\Core\app\Notifications\ResetPasswordNotification;
@@ -127,7 +127,7 @@ class User extends Authenticatable
     {
         $birthday = 'N/A';
 
-        if ($this->nin && Validations::validatorNin('', $this->nin)) {
+        if ((new CnpValidator($this->nin))->isValid()) {
             $type = substr($this->nin, 0, 1);
             $year = substr($this->nin, 1, 2);
             $month = substr($this->nin, 3, 2);
