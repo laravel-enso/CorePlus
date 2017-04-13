@@ -127,18 +127,20 @@ class User extends Authenticatable
     {
         $birthday = 'N/A';
 
-        if ((new CnpValidator($this->nin))->isValid()) {
-            $type = substr($this->nin, 0, 1);
-            $year = substr($this->nin, 1, 2);
-            $month = substr($this->nin, 3, 2);
-            $day = substr($this->nin, 5, 2);
-            $year = ($type === '5' || $type === '6') ? '20'.$year : '19'.$year;
+        if ((new CnpValidator($this->nin))->fails()) {
+            return $birthday;
+        }
 
-            $birthday = \Date::parse($year.$month.$day)->format('d-m-Y');
+        $type = substr($this->nin, 0, 1);
+        $year = substr($this->nin, 1, 2);
+        $month = substr($this->nin, 3, 2);
+        $day = substr($this->nin, 5, 2);
+        $year = ($type === '5' || $type === '6') ? '20'.$year : '19'.$year;
 
-            if ($birthday == \Date::now()->format('d-m-Y')) {
-                $birthday = __('Happy Birthday');
-            }
+        $birthday = \Date::parse($year.$month.$day)->format('d-m-Y');
+
+        if ($birthday == \Date::now()->format('d-m-Y')) {
+            $birthday = __('Happy Birthday');
         }
 
         return $birthday;
