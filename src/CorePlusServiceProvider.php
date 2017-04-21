@@ -17,6 +17,7 @@ class CorePlusServiceProvider extends ServiceProvider
         'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
         'LaravelEnso\CommentsManager\CommentsManagerServiceProvider',
+        'LaravelEnso\StatisticsManager\StatisticsManagerServiceProvider',
         'Jenssegers\Date\DateServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
