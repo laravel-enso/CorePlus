@@ -127,7 +127,7 @@ class User extends Authenticatable
     {
         $birthday = 'N/A';
 
-        if ((new CnpValidator($this->nin))->fails()) {
+        if (!(new CnpValidator($this->nin))->isValid()) {
             return $birthday;
         }
 
