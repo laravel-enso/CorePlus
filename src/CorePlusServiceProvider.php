@@ -66,7 +66,7 @@ class CorePlusServiceProvider extends ServiceProvider
 
     private function loadDependencies()
     {
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-enso/core');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-enso/coreplus');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
