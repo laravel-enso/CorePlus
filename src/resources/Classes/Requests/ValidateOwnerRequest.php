@@ -25,9 +25,10 @@ class ValidateOwnerRequest extends FormRequest
     {
         $owner = $this->route('owner');
         $name = 'required|max:50|unique:owners,name';
-        $fiscalCode = 'required|unique:owners,fiscal_code';
-        $regComNr = 'unique:owners,reg_com_nr';
-        $email = 'email|unique:owners,email';
+        $fiscalCode = 'nullable|unique:owners,fiscal_code';
+        $regComNr = 'nullable|unique:owners,reg_com_nr';
+        $email = 'nullable|email|unique:owners,email';
+        $phone = 'nullable';
 
         if ($this->_method == 'PATCH') {
             $name .= ','.$owner->id.',id';
@@ -39,10 +40,10 @@ class ValidateOwnerRequest extends FormRequest
         return [
             'name'          => $name,
             'email'         => $email,
-            'phone'         => ['max:20', 'regex:^[0-9+\(\)#\.\s\/ext-]+$^'],
+            'phone'         => $phone,
             'fiscal_code'   => $fiscalCode,
             'reg_com_nr'    => $regComNr,
-            'is_individual' => 'required|in:"1","0"',
+            // 'is_individual' => 'required|in:"1","0"',
             'is_active'     => 'required|in:"1","0"',
         ];
     }
