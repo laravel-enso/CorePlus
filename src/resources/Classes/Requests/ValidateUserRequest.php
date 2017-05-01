@@ -27,8 +27,8 @@ class ValidateUserRequest extends FormRequest
             'role_id'    => 'required|numeric|exists:roles,id',
             'owner_id'   => 'required|numeric|exists:owners,id',
             'email'      => $email,
-            'phone'      => ['max:20', 'regex:^[0-9+\(\)#\.\s\/ext-]+$^'],
-            'nin'        => 'max:13|nin',
+            'phone'      => 'nullable|string',
+            'nin'        => 'max:13|cnp',
         ];
     }
 }
