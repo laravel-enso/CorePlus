@@ -14,11 +14,11 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'email', 'first_name', 'last_name', 'phone', 'nin', 'is_active', 'role_id'
+        'email', 'first_name', 'last_name', 'phone', 'nin', 'is_active', 'role_id',
     ];
 
     protected $hidden = [
-        'password', 'remember_token', 'api_token', 'slack'
+        'password', 'remember_token', 'api_token', 'slack',
     ];
 
     protected $appends = ['avatar_link', 'full_name'];
