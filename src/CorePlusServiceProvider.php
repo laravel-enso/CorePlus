@@ -43,6 +43,10 @@ class CorePlusServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/resources/assets/main-js' => resource_path('assets/js'),
         ], 'coreplus-main-js');
+
+        $this->publishes([
+            __DIR__.'/resources/assets/main-js' => resource_path('assets/js'),
+        ], 'update');
     }
 
     private function publishesClasses()
@@ -66,7 +70,7 @@ class CorePlusServiceProvider extends ServiceProvider
 
     private function loadDependencies()
     {
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-enso/coreplus');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-enso/core');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
