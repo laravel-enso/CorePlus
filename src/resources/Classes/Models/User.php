@@ -7,7 +7,7 @@ use LaravelEnso\CorePlus\app\Models\User as Users;
 class User extends Users
 {
     protected $fillable = [
-        'first_name', 'last_name', 'phone', 'nin', 'is_active', 'role_id',
+        'first_name', 'last_name', 'phone', 'nin', 'is_active', 'role_id'
     ];
 
     protected $hidden = [
