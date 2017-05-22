@@ -10,8 +10,8 @@ class IsIndividualEnum extends AbstractEnum
     {
         $this->data = [
 
-            1 => __('yes'),
-            0 => __('no'),
+            1 => __('Yes'),
+            0 => __('No'),
         ];
     }
 }
