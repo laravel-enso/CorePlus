@@ -48,7 +48,7 @@ class AddColumnsToOwnersTable extends Migration
                 'contact',
                 'phone',
                 'email',
-                'is_individual'
+                'is_individual',
             ]);
         });
     }

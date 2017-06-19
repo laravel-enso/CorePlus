@@ -101,7 +101,7 @@ class User extends Authenticatable
 
     public function getFullNameAttribute()
     {
-        return trim($this->first_name . ' ' . $this->last_name);
+        return trim($this->first_name.' '.$this->last_name);
     }
 
     public function getCreatedDateAttribute()
@@ -121,9 +121,9 @@ class User extends Authenticatable
         $year = substr($this->nin, 1, 2);
         $month = substr($this->nin, 3, 2);
         $day = substr($this->nin, 5, 2);
-        $year = ($type === '5' || $type === '6') ? '20' . $year : '19' . $year;
+        $year = ($type === '5' || $type === '6') ? '20'.$year : '19'.$year;
 
-        $birthday = \Date::parse($year . $month . $day)->format('d-m-Y');
+        $birthday = \Date::parse($year.$month.$day)->format('d-m-Y');
 
         if ($birthday == \Date::now()->format('d-m-Y')) {
             $birthday = __('Happy Birthday');
