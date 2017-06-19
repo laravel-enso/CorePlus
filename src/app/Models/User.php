@@ -4,24 +4,24 @@ namespace LaravelEnso\CorePlus\app\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use LaravelEnso\AvatarManager\app\Models\Avatar;
 use LaravelEnso\CnpValidator\app\Classes\CnpValidator;
+use LaravelEnso\Core\app\Classes\DefaultPreferences;
 use LaravelEnso\Core\app\Enums\IsActiveEnum;
-use LaravelEnso\Core\app\Http\Controllers\Core\PreferencesController;
 use LaravelEnso\Core\app\Notifications\ResetPasswordNotification;
+use LaravelEnso\Impersonate\app\Traits\Model\Impersonate;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Impersonate;
 
     protected $fillable = [
         'email', 'first_name', 'last_name', 'phone', 'nin', 'is_active', 'role_id',
     ];
 
-    protected $hidden = [
-        'password', 'remember_token', 'api_token', 'slack',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
-    protected $appends = ['avatar_link', 'full_name'];
+    protected $appends = ['avatar_id', 'full_name', 'preferences'];
 
     public function owner()
     {
@@ -30,7 +30,15 @@ class User extends Authenticatable
 
     public function avatar()
     {
-        return $this->hasOne('LaravelEnso\Core\app\Models\Avatar');
+        return $this->hasOne('LaravelEnso\AvatarManager\app\Models\Avatar');
+    }
+
+    public function getAvatarIdAttribute()
+    {
+        $id = $this->avatar ? $this->avatar->id : null;
+        unset($this->avatar);
+
+        return $id;
     }
 
     public function role()
@@ -43,14 +51,19 @@ class User extends Authenticatable
         return $this->hasMany('LaravelEnso\Core\app\Models\Login');
     }
 
-    public function preferences()
+    public function preference()
     {
-        return $this->hasMany('LaravelEnso\Core\app\Models\Preference');
+        return $this->hasOne('LaravelEnso\Core\app\Models\Preference');
+    }
+
+    public function documents()
+    {
+        return $this->hasMany('LaravelEnso\DocumentsManager\app\Models\Document', 'created_by');
     }
 
     public function comments()
     {
-        return $this->hasMany('LaravelEnso\CommentsManager\app\Models\Comment');
+        return $this->hasMany('LaravelEnso\CommentsManager\app\Models\Comment', 'created_by');
     }
 
     public function comment_tags()
@@ -58,29 +71,17 @@ class User extends Authenticatable
         return $this->belongsToMany('LaravelEnso\CommentsManager\app\Models\Comment');
     }
 
-    public function getAvatarLinkAttribute()
+    public function getPreferencesAttribute()
     {
-        return $this->avatar ? '/core/avatars/'.$this->avatar->saved_name : asset('/images/profile.png');
+        $preferences = $this->preference ? $this->preference->value : (new DefaultPreferences())->getData();
+        unset($this->preference);
+
+        return $preferences;
     }
 
-    public function getLanguageAttribute()
+    public function action_logs()
     {
-        return json_decode($this->global_preferences)->lang;
-    }
-
-    public function getGlobalPreferencesAttribute()
-    {
-        return PreferencesController::getPreferences('global');
-    }
-
-    public function getPreferences($page)
-    {
-        return PreferencesController::getPreferences($page);
-    }
-
-    public function action_histories()
-    {
-        return $this->hasMany('LaravelEnso\ActionLogger\app\Models\ActionHistory');
+        return $this->hasMany('LaravelEnso\ActionLogger\app\Models\ActionLog');
     }
 
     public function isAdmin()
@@ -98,24 +99,9 @@ class User extends Authenticatable
         return $this->role->permissions->pluck('name')->search($route) !== false;
     }
 
-    public function setImpersonating($id)
-    {
-        session()->put('impersonate', $id);
-    }
-
-    public function stopImpersonating()
-    {
-        session()->forget('impersonate');
-    }
-
-    public function isImpersonating()
-    {
-        return session()->has('impersonate');
-    }
-
     public function getFullNameAttribute()
     {
-        return $this->first_name.' '.$this->last_name;
+        return trim($this->first_name . ' ' . $this->last_name);
     }
 
     public function getCreatedDateAttribute()
@@ -135,9 +121,9 @@ class User extends Authenticatable
         $year = substr($this->nin, 1, 2);
         $month = substr($this->nin, 3, 2);
         $day = substr($this->nin, 5, 2);
-        $year = ($type === '5' || $type === '6') ? '20'.$year : '19'.$year;
+        $year = ($type === '5' || $type === '6') ? '20' . $year : '19' . $year;
 
-        $birthday = \Date::parse($year.$month.$day)->format('d-m-Y');
+        $birthday = \Date::parse($year . $month . $day)->format('d-m-Y');
 
         if ($birthday == \Date::now()->format('d-m-Y')) {
             $birthday = __('Happy Birthday');

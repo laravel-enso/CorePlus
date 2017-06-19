@@ -14,7 +14,7 @@ class User extends Users
         'password', 'remember_token', 'api_token', 'slack',
     ];
 
-    protected $appends = ['avatar_link', 'full_name'];
+    protected $appends = ['avatar_id', 'full_name'];
 
     public function owner()
     {

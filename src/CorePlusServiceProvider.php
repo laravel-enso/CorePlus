@@ -7,20 +7,15 @@ use Illuminate\Support\ServiceProvider;
 
 class CorePlusServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
     private $providers = [
-        'LaravelEnso\Core\CoreServiceProvider',
-        'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
-        'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
-        'LaravelEnso\CommentsManager\CommentsManagerServiceProvider',
-        'LaravelEnso\StatisticsManager\StatisticsManagerServiceProvider',
-        'Jenssegers\Date\DateServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Jenssegers\Date\DateServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
+        'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
+        'LaravelEnso\CommentsManager\CommentsServiceProvider',
+        'LaravelEnso\Core\CoreServiceProvider',
+        'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
+        'LaravelEnso\StatisticsManager\StatisticsManagerServiceProvider'
     ];
 
     public function boot()
@@ -74,11 +69,6 @@ class CorePlusServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
     public function register()
     {
         foreach ($this->providers as $provider) {

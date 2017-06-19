@@ -13,7 +13,7 @@ class AddColumnsToOwnersTable extends Migration
     public function up()
     {
         Schema::table('owners', function (Blueprint $table) {
-            $table->string('fiscal_code')->unique('fiscal_code')->nullable()->after('name');
+            $table->string('fiscal_code')->unique()->nullable()->after('name');
             $table->string('reg_com_nr')->nullable()->after('fiscal_code');
             $table->string('city')->nullable()->after('reg_com_nr');
             $table->string('county')->nullable()->after('city');
@@ -36,18 +36,20 @@ class AddColumnsToOwnersTable extends Migration
     public function down()
     {
         Schema::table('owners', function (Blueprint $table) {
-            $table->dropColumn('fiscal_code');
-            $table->dropColumn('reg_com_nr');
-            $table->dropColumn('city');
-            $table->dropColumn('county');
-            $table->dropColumn('address');
-            $table->dropColumn('postal_code');
-            $table->dropColumn('bank');
-            $table->dropColumn('bank_account');
-            $table->dropColumn('contact');
-            $table->dropColumn('phone');
-            $table->dropColumn('email');
-            $table->dropColumn('is_individual');
+            $table->dropColumn([
+                'fiscal_code',
+                'reg_com_nr',
+                'city',
+                'county',
+                'address',
+                'postal_code',
+                'bank',
+                'bank_account',
+                'contact',
+                'phone',
+                'email',
+                'is_individual'
+            ]);
         });
     }
 }

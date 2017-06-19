@@ -10,16 +10,16 @@ use LaravelEnso\Core\app\Enums\IsActiveEnum;
 use LaravelEnso\Core\app\Models\Role;
 use LaravelEnso\CorePlus\app\Enums\IsIndividualEnum;
 use LaravelEnso\DataTable\app\Traits\DataTable;
-use LaravelEnso\Select\app\Traits\SelectListBuilderTrait;
+use LaravelEnso\Select\app\Traits\SelectListBuilder;
 
 class OwnersController extends Controller
 {
-    use DataTable, SelectListBuilderTrait;
+    use DataTable, SelectListBuilder;
 
     protected $tableStructureClass = OwnersTableStructure::class;
     protected $selectSourceClass = Owner::class;
 
-    public static function getTableQuery()
+    public function getTableQuery()
     {
         $id = request()->user()->owner_id === 1 ?: 2;
 
@@ -70,7 +70,7 @@ class OwnersController extends Controller
 
         // excluding "admin" role for Owners <> Admin
         $id = request()->user()->owner->id === 1 ?: 2;
-        $roles = Role::where('id', '>=', $id)->get()->pluck('name', 'id');
+        $roles = Role::where('id', '>=', $id)->pluck('name', 'id');
 
         return view('laravel-enso/core::pages.administration.owners.edit', compact('owner', 'roles', 'types', 'statuses'));
     }
