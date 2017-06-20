@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo('LaravelEnso\Core\app\Models\Role');
+        return $this->belongsTo('LaravelEnso\RoleManager\app\Models\Role');
     }
 
     public function logins()

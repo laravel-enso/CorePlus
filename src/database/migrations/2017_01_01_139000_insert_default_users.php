@@ -1,17 +1,12 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use LaravelEnso\Core\app\Models\Role;
+use LaravelEnso\RoleManager\app\Models\Role;
 use LaravelEnso\CorePlus\app\Models\Owner;
 use LaravelEnso\CorePlus\app\Models\User;
 
 class InsertDefaultUsers extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         \DB::transaction(function () {
@@ -38,11 +33,6 @@ class InsertDefaultUsers extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         $users = User::all();

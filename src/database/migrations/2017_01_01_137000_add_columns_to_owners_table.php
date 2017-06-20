@@ -5,11 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddColumnsToOwnersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('owners', function (Blueprint $table) {
@@ -28,11 +23,6 @@ class AddColumnsToOwnersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('owners', function (Blueprint $table) {
