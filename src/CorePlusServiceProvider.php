@@ -15,7 +15,7 @@ class CorePlusServiceProvider extends ServiceProvider
         'LaravelEnso\CommentsManager\CommentsServiceProvider',
         'LaravelEnso\Core\CoreServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
-        'LaravelEnso\StatisticsManager\StatisticsManagerServiceProvider'
+        'LaravelEnso\StatisticsManager\StatisticsManagerServiceProvider',
     ];
 
     public function boot()
