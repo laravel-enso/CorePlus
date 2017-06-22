@@ -27,7 +27,7 @@ class Owner extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('is_active', 1);
+        return $query->whereIsActive(true);
     }
 
     public function scopeIndividual($query)

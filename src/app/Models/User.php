@@ -2,13 +2,13 @@
 
 namespace LaravelEnso\CorePlus\app\Models;
 
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use LaravelEnso\AvatarManager\app\Models\Avatar;
 use LaravelEnso\CnpValidator\app\Classes\CnpValidator;
 use LaravelEnso\Core\app\Classes\DefaultPreferences;
 use LaravelEnso\Core\app\Enums\IsActiveEnum;
-use LaravelEnso\Core\app\Notifications\ResetPasswordNotification;
 use LaravelEnso\Impersonate\app\Traits\Model\Impersonate;
 
 class User extends Authenticatable
@@ -91,7 +91,22 @@ class User extends Authenticatable
 
     public function scopeActive($query)
     {
-        return $query->where('is_active', 1);
+        return $query->whereIsActive(true);
+    }
+
+    public function scopeDisabled($query)
+    {
+        return $query->whereIsActive(false);
+    }
+
+    public function isActive()
+    {
+        return $this->is_active;
+    }
+
+    public function isDisabled()
+    {
+        return !$this->is_active;
     }
 
     public function hasAccessTo($route)
