@@ -14,7 +14,7 @@ class CorePlusServiceProvider extends ServiceProvider
         'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
         'LaravelEnso\CommentsManager\CommentsServiceProvider',
         'LaravelEnso\Core\CoreServiceProvider',
-        'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider'
+        'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
     ];
 
     public function boot()
