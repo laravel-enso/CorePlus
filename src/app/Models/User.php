@@ -8,7 +8,6 @@ use Illuminate\Notifications\Notifiable;
 use LaravelEnso\AvatarManager\app\Models\Avatar;
 use LaravelEnso\CnpValidator\app\Classes\CnpValidator;
 use LaravelEnso\Core\app\Classes\DefaultPreferences;
-use LaravelEnso\Core\app\Enums\IsActiveEnum;
 use LaravelEnso\Helpers\Traits\FormattedTimestamps;
 use LaravelEnso\Helpers\Traits\IsActiveTrait;
 use LaravelEnso\Impersonate\app\Traits\Model\Impersonate;
