@@ -9,11 +9,13 @@ use LaravelEnso\AvatarManager\app\Models\Avatar;
 use LaravelEnso\CnpValidator\app\Classes\CnpValidator;
 use LaravelEnso\Core\app\Classes\DefaultPreferences;
 use LaravelEnso\Core\app\Enums\IsActiveEnum;
+use LaravelEnso\Helpers\Traits\FormattedTimestamps;
+use LaravelEnso\Helpers\Traits\IsActiveTrait;
 use LaravelEnso\Impersonate\app\Traits\Model\Impersonate;
 
 class User extends Authenticatable
 {
-    use Notifiable, Impersonate;
+    use Notifiable, Impersonate, IsActiveTrait, FormattedTimestamps;
 
     protected $fillable = [
         'email', 'first_name', 'last_name', 'phone', 'nin', 'is_active', 'role_id',
@@ -89,39 +91,9 @@ class User extends Authenticatable
         return $this->role_id == 1;
     }
 
-    public function scopeActive($query)
-    {
-        return $query->whereIsActive(true);
-    }
-
-    public function scopeDisabled($query)
-    {
-        return $query->whereIsActive(false);
-    }
-
-    public function isActive()
-    {
-        return $this->is_active;
-    }
-
-    public function isDisabled()
-    {
-        return !$this->is_active;
-    }
-
-    public function hasAccessTo($route)
-    {
-        return $this->role->permissions->pluck('name')->search($route) !== false;
-    }
-
     public function getFullNameAttribute()
     {
         return trim($this->first_name.' '.$this->last_name);
-    }
-
-    public function getCreatedDateAttribute()
-    {
-        return \Date::parse($this->created_at)->format('d-m-Y');
     }
 
     public function getBirthdayAttribute()
@@ -147,20 +119,8 @@ class User extends Authenticatable
         return $birthday;
     }
 
-    public function getActiveLabelAttribute()
-    {
-        $isActiveEnum = new IsActiveEnum();
-
-        return $isActiveEnum->getValueByKey($this->is_active);
-    }
-
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($this, $token));
-    }
-
-    public function routeNotificationForSlack()
-    {
-        return $this->slack;
     }
 }
