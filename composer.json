@@ -15,10 +15,11 @@
         "laravel-enso/core": "1.1.*",
         "laravel-enso/cnpvalidator": "1.1.*",
         "laravel-enso/commentsmanager": "1.1.*",
+        "laravel-enso/contactpersons": "1.1.*",
+        "laravel-enso/dataimport": "1.1.*",
         "laravel-enso/documentsmanager": "1.1.*",
-        "jenssegers/date": "^3.2",
-        "barryvdh/laravel-debugbar": "^2.3",
-        "maatwebsite/excel": "^2.1.0"
+        "laravel-enso/notifications": "1.1.*",
+        "barryvdh/laravel-debugbar": "^2.3"
     },
     "autoload": {
         "psr-4": {

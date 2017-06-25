@@ -2,24 +2,24 @@
 
 namespace LaravelEnso\CorePlus;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class CorePlusServiceProvider extends ServiceProvider
 {
     private $providers = [
         'Barryvdh\Debugbar\ServiceProvider',
-        'Jenssegers\Date\DateServiceProvider',
-        'Maatwebsite\Excel\ExcelServiceProvider',
         'LaravelEnso\CnpValidator\CnpValidatorServiceProvider',
         'LaravelEnso\CommentsManager\CommentsServiceProvider',
+        'LaravelEnso\ContactPersons\ContactPersonsServiceProvider',
         'LaravelEnso\Core\CoreServiceProvider',
+        'LaravelEnso\DataImport\DataImportServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
+        'LaravelEnso\Notifications\NotificationsServiceProvider',
     ];
 
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
     }
 
     public function register()
@@ -27,8 +27,5 @@ class CorePlusServiceProvider extends ServiceProvider
         foreach ($this->providers as $provider) {
             $this->app->register($provider);
         }
-
-        $loader = AliasLoader::getInstance();
-        $loader->alias('Date', 'Jenssegers\Date\Date');
     }
 }
