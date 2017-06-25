@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/laravel-enso/coreplus/downloads)](https://packagist.org/packages/laravel-enso/coreplus)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/coreplus/version)](https://packagist.org/packages/laravel-enso/coreplus)
 
-Dependency for Laravel Enso.
+Dependency Aggregator for Laravel Enso
 
 ### Contributions
 

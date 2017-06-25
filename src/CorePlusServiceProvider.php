@@ -13,7 +13,7 @@ class CorePlusServiceProvider extends ServiceProvider
         'LaravelEnso\ContactPersons\ContactPersonsServiceProvider',
         'LaravelEnso\Core\CoreServiceProvider',
         'LaravelEnso\DataImport\DataImportServiceProvider',
-        'LaravelEnso\DocumentsManager\DocumentsManagerServiceProvider',
+        'LaravelEnso\DocumentsManager\DocumentsServiceProvider',
         'LaravelEnso\Notifications\NotificationsServiceProvider',
     ];
 
