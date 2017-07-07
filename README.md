@@ -1,9 +1,11 @@
+<!--h--> 
 # Laravel Enso Core Plus
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f5855ab67cf4581afb20587836d49fc)](https://www.codacy.com/app/laravel-enso/CorePlus?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/CorePlus&utm_campaign=badger)
 [![StyleCI](https://styleci.io/repos/86157480/shield?branch=master)](https://styleci.io/repos/86157480)
 [![License](https://poser.pugx.org/laravel-enso/coreplus/license)](https://https://packagist.org/packages/laravel-enso/coreplus)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/coreplus/downloads)](https://packagist.org/packages/laravel-enso/coreplus)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/coreplus/version)](https://packagist.org/packages/laravel-enso/coreplus)
+<!--/h-->
 
 Dependency aggregator for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
@@ -20,6 +22,12 @@ The package is used to pull and integrate a series of other necessary packages.
 
 The package must be installed on top of [Laravel Enso Core](https://github.com/laravel-enso/core)
 
+<!--h-->
 ### Contributions
 
-are welcome
+are welcome. Pull requests are great, but issues are good too.
+
+### License
+
+This package is released under the MIT license.
+<!--/h-->
