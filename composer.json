@@ -13,10 +13,7 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
         "laravel-enso/core": "1.1.*",
-        "laravel-enso/cnpvalidator": "1.1.*",
         "laravel-enso/commentsmanager": "1.1.*",
-        "laravel-enso/contactpersons": "1.1.*",
-        "laravel-enso/dataimport": "1.1.*",
         "laravel-enso/documentsmanager": "1.1.*",
         "laravel-enso/notifications": "1.1.*",
         "barryvdh/laravel-debugbar": "^2.3"
