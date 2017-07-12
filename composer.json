@@ -1,12 +1,15 @@
 {
     "name": "laravel-enso/coreplus",
     "description": "Dependency for Laravel Enso.",
+    "homepage": "https://github.com/laravel-enso/CorePlus",
     "type": "dependency",
     "license": "MIT",
     "authors": [
         {
-            "name": "mishu",
-            "email": "mishu@xtelecom.ro"
+            "name": "Adrian Ocneanu",
+            "email": "aocneanu@gmail.com",
+            "homepage": "https://laravel-enso.com",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -30,5 +33,13 @@
             "php artisan ide-helper:meta",
             "php artisan optimize"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelEnso\\CorePlus\\CorePlusServiceProvider"
+            ],
+            "aliases": {}
+        }
     }
 }
