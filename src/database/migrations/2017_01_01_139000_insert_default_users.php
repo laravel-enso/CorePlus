@@ -19,15 +19,7 @@ class InsertDefaultUsers extends Migration
             ];
 
             foreach ($users as $user) {
-                $password = $user['password'];
-                $email = $user['email'];
-                $user = new User($user);
-                $user->password = $password;
-                $user->email = $email;
-                $user->owner_id = $owner->id;
-                $user->role_id = $role->id;
-
-                $user->save();
+                $this->create($user, $owner, $role);
             }
         });
     }
@@ -36,9 +28,21 @@ class InsertDefaultUsers extends Migration
     {
         $users = User::all();
         $users->each(function ($user) {
-            $user->action_logs->each->delete();
+            $user->actionLogs->each->delete();
             $user->logins->each->delete();
             $user->delete();
         });
+    }
+
+    private function create(array $user, Owner $owner, Role $role)
+    {
+        $password = $user['password'];
+        $email = $user['email'];
+        $user = new User($user);
+        $user->password = $password;
+        $user->email = $email;
+        $user->owner_id = $owner->id;
+        $user->role_id = $role->id;
+        $user->save();
     }
 }
