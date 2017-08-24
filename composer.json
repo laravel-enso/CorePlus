@@ -17,6 +17,7 @@
         "laravel/framework": "5.4.*",
         "laravel-enso/core": "1.2.*",
         "laravel-enso/commentsmanager": "1.2.*",
+        "laravel-enso/contacts": "1.2.*",
         "laravel-enso/documentsmanager": "1.2.*",
         "laravel-enso/notifications": "1.2.*",
         "barryvdh/laravel-debugbar": "^2.3"

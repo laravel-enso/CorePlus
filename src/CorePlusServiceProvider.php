@@ -9,6 +9,7 @@ class CorePlusServiceProvider extends ServiceProvider
     private $providers = [
         'Barryvdh\Debugbar\ServiceProvider',
         'LaravelEnso\CommentsManager\CommentsServiceProvider',
+                    'LaravelEnso\Contacts\ContactsServiceProvider',
         'LaravelEnso\Core\CoreServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsServiceProvider',
         'LaravelEnso\Notifications\NotificationsServiceProvider',
