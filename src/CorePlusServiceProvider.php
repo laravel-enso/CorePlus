@@ -9,7 +9,7 @@ class CorePlusServiceProvider extends ServiceProvider
     private $providers = [
         'Barryvdh\Debugbar\ServiceProvider',
         'LaravelEnso\CommentsManager\CommentsServiceProvider',
-                    'LaravelEnso\Contacts\ContactsServiceProvider',
+        'LaravelEnso\Contacts\ContactsServiceProvider',
         'LaravelEnso\Core\CoreServiceProvider',
         'LaravelEnso\DocumentsManager\DocumentsServiceProvider',
         'LaravelEnso\Notifications\NotificationsServiceProvider',
@@ -17,7 +17,7 @@ class CorePlusServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
     }
 
     public function register()
